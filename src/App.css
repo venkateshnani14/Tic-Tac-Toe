@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.square{
+  width:33px;
+  height: 33px;
+}
+.btn_name,#game_end{
+  padding: 0px;
+  margin: 0px;
+}
