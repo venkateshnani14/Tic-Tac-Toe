@@ -13,11 +13,15 @@ export default function Grid(){
             <br/>
             {top + " is the Winner"}
             <br/>
+            <button onClick={NewGame}>New game</button>
         </div>
+    }
+    function NewGame(){
+        setSquares(null);
     }
     
     function handleClick(i){
-        // if there is an existing value already
+        //if there is an existing value already
         if(squares[i])return;
         if (squares[i] || chickenDinner(squares)) {
             return;
@@ -26,7 +30,7 @@ export default function Grid(){
         const nextSquares = squares.slice();
         if(nextIsX) nextSquares[i] = 'X';
         else nextSquares[i] = 'O';
-        setSquares(nextSquares);p
+        setSquares(nextSquares);
         setNextIsX(!nextIsX);
     }
    return(
@@ -69,4 +73,3 @@ function chickenDinner(squares){
                     }
                     return null;
 }
-
