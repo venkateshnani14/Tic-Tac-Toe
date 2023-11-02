@@ -1,37 +1,28 @@
 import { useState } from 'react';
 import Box from './box'
 
-export default function Grid(){
-    const [squares,setSquares] = useState(Array(9).fill(null));
-    const [nextIsX,setNextIsX] = useState(true);
+export default function Grid({xIsNext,squares,onPlay}){
+    // const [squares,setSquares] = useState(Array(9).fill(null));
+    // const [nextIsX,setNextIsX] = useState(true);
     const top = chickenDinner(squares);
     let output;
-    if(!top)output = "Continue playing";
+    if(!top)output = "Beat your opponent";
     else{
-        output = <div>
-            <h3 id="game_end">Game over</h3>
-            <br/>
-            {top + " is the Winner"}
-            <br/>
-            <button onClick={NewGame}>New game</button>
-        </div>
+        output = <p id='grid_op'>
+            {"'" + top + "'" + " is the Winner"}
+        </p>
     }
-    function NewGame(){
-        setSquares(null);
-    }
+    // function NewGame(){
+    //     setSquares(null);
+    // }
     
     function handleClick(i){
         //if there is an existing value already
-        if(squares[i])return;
-        if (squares[i] || chickenDinner(squares)) {
-            return;
-          }
-
+        if (squares[i] || chickenDinner(squares)) return;
         const nextSquares = squares.slice();
-        if(nextIsX) nextSquares[i] = 'X';
+        if(xIsNext) nextSquares[i] = 'X';
         else nextSquares[i] = 'O';
-        setSquares(nextSquares);
-        setNextIsX(!nextIsX);
+         onPlay(nextSquares);
     }
    return(
     <>

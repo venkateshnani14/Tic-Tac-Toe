@@ -36,14 +36,27 @@
     transform: rotate(360deg);
   }
 }
-.square{
-  width:33px;
+#square{
+   width:33px;
   height: 33px;
-}
-.btn_name,#game_end{
+  border: 1px solid white;
+}#game_end{
   padding: 0px;
   margin: 0px;
 }
 .game{
   display:flex;justify-content: center;align-items: center;flex-direction: column;
+}
+ul{
+   list-style-type: none;
+}
+.btn-sharp{
+  border-radius: 0px;
+}
+.badge{
+  font-size: xx-large;
+}
+#heading{color: #0952e4;}
+#grid_op{
+  color:#0952e4;
 }
